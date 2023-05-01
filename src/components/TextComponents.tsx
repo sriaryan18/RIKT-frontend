@@ -1,7 +1,8 @@
 import {StyleSheet, View} from 'react-native';
 import {TextInput,Button,Text} from 'react-native-paper';
 
-const TextComponent=({label,text,setText,type,style,keyboardType}:any)=>{
+
+const TextComponent=({label,text,setText,type,style,keyboardType,icon,isDisabled=false}:any)=>{
    
     return (
 
@@ -15,6 +16,8 @@ const TextComponent=({label,text,setText,type,style,keyboardType}:any)=>{
                 activeOutlineColor='black'
                 secureTextEntry={type=='password'?true:false}
                 keyboardType={keyboardType}
+                disabled={isDisabled}
+                right={<TextInput.Icon icon={icon} />}
             />
           
         </View>

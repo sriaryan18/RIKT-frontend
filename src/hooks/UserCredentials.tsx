@@ -24,7 +24,8 @@ const useUserCredentials = () =>{
             "Credentials",JSON.stringify(userCredentials));
           
             await AsyncStorage.setItem("IsLoggedIn",JSON.stringify(true))
-            getCredentials();
+            
+            // getCredentials();
         }catch(err){
             console.log("Error occured in saving the data ",err);
         }
@@ -35,6 +36,7 @@ const useUserCredentials = () =>{
             const value=await AsyncStorage.getItem  ("Credentials");
             const v2=await AsyncStorage.getItem("IsLoggedIn")
             console.log("The saved value is",value,v2);
+            return {value};
             
         }catch(err){
             console.log("Error occure while retreiving te data",err);
@@ -43,6 +45,8 @@ const useUserCredentials = () =>{
     const deleteCredentials = async ()=>{
         try{
             await AsyncStorage.removeItem("Credentials");
+            await AsyncStorage.removeItem("ProfilePicture")
+            await AsyncStorage.removeItem("IsLoggedIn");
         }catch(err){
             console.log("Error deleteting the data",err);
         }
@@ -52,7 +56,7 @@ const useUserCredentials = () =>{
         userCredentials,
         handleChange,
         saveCredentials,
-        getCredentials
+        getCredentials,deleteCredentials
     };
 }
 

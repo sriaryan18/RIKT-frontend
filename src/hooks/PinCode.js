@@ -1,5 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { useEffect, useState } from 'react';
+import useUserCredentials from './UserCredentials';
 
 const usePinCode = ()=>{
 
@@ -9,6 +10,7 @@ const usePinCode = ()=>{
         third:"",
         forth:""
     });
+    const {deleteCredentials}=useUserCredentials();
 
    
   
@@ -28,7 +30,6 @@ const usePinCode = ()=>{
             setPinCode({...pinCode,forth:value})
             navigation.navigate("Home Screen");
             setPinCode({...pinCode,first:"",second:"",third:"",forth:""})
-            
         }
     }
     const handleDelete = () =>{
@@ -37,6 +38,7 @@ const usePinCode = ()=>{
         else if(pinCode.third != "") setPinCode({...pinCode,third:""})
         else if(pinCode.second != "") setPinCode({...pinCode,second:""})
         else if(pinCode.first != "") setPinCode({...pinCode , first:""});
+        
 
     }
 

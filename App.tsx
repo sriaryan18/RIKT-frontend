@@ -32,6 +32,7 @@ const App = ()=>{
       try{
         let logged:string = await AsyncStorage.getItem("IsLoggedIn") || "false";
         setIsLoggedIn(logged);
+        
       } 
       catch(err){
         console.log("Error fetching the data",err);

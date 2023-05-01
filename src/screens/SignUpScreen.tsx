@@ -6,12 +6,14 @@ import useUserCredentials from '../hooks/UserCredentials';
 import React, { useContext } from 'react';
 import { MyScreen } from '../../App';
 import ButtonComponent from '../components/Button';
+import { useNavigation } from '@react-navigation/native';
 
 
 
 
 const Signup = ()=>{
     
+    const navigation=useNavigation();
     const {height,width} = useContext(MyScreen);
     const {userCredentials,handleChange,saveCredentials,getCredentials} = useUserCredentials();
 
@@ -20,7 +22,6 @@ const Signup = ()=>{
         handleChange(value,type);
         // console.log(userCredentials.name);
     }
-
     const labels=['Full Name','UserName','Password','Email id','Mobile Number'];
     const type=["name","userName","password","emailId","mobileNumber"];
     const textComponents= []
@@ -39,6 +40,12 @@ const Signup = ()=>{
            
         )
     }
+    const saveAndNavigate=(data:any)=>{
+        saveCredentials();
+        const sc:any="Mpin Scree";
+        navigation.navigate(sc);
+    
+    }
 
     return(
         <KeyboardAvoidingView 
@@ -52,7 +59,7 @@ const Signup = ()=>{
             <ButtonComponent
                 style={styleSheet.buttonStyle}
                 text='Submit'
-                onPress={saveCredentials}
+                onPress={saveAndNavigate}
                 
             />
                 
