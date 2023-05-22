@@ -8,7 +8,7 @@ import ButtonComponent from '../components/Button';
 import useImageGallery from '../hooks/ProfilePicture';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import TextComponent from '../components/TextComponents';
-import useUserCredentials from '../hooks/UserCredentials';
+
 
  const Profile = ()=>{
 
@@ -109,7 +109,7 @@ const styleSheet = StyleSheet.create({
         height:200,
         width:200,
         maxHeight:"100%",
-        maxWidth:"100%"
+        maxWidth:"100%",
         
     }
 })
