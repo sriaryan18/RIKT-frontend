@@ -42,10 +42,11 @@ const Signup = ()=>{
     }
     const saveAndNavigate=(data:any)=>{
         saveCredentials();
-        const sc:any="Mpin Scree";
+        const sc:any="Mpin Screen";
         navigation.navigate(sc);
     
     }
+    console.log("I am textComponents",textComponents);
 
     return(
         <KeyboardAvoidingView 

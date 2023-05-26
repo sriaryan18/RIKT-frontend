@@ -1,13 +1,14 @@
 import {View} from 'react-native';
 import { Button, Text } from 'react-native-paper';
-// import axois from 'react-native-axios'
+import axois from 'react-native-axios'
 import TextComponent from '../components/TextComponents';
 import { useContext, useState } from 'react';
 import { MyScreen } from '../../App';
 import ButtonComponent from '../components/Button';
+import result from '../hooks/results';
 
 
-
+const ngrokUrl='https://bdd4-2401-4900-47f0-8d4f-5e6e-dd7b-4ccd-78a5.ngrok-free.app'
 
 
  const TalkScreen = ()=>{
@@ -21,18 +22,27 @@ import ButtonComponent from '../components/Button';
         'ans6':"",
         
     })
-    const callAxios = ()=>{
-        const data:any={}
-        for(let i=0;i<5;i++){   
-            data[`text${i+1}`]=answers[`ans${i+1}`]
+    const {updateState}:any=result();
+    const callAxios = async ()=>{
+        const payload:any={}
+        for(let i=0;i<5;i++){
+            let str=`text${i+1}`;
+            payload[str]=answers[`ans${i+1}`]
         }
-        const payload=JSON.stringify(data);
-        console.log("I am payload>>>",payload);
-        let config:any={
-            method:'post',
-            url:'',
-            data:payload
-        }
+        const url=`${ngrokUrl}/get-emotions-text`;
+       
+        const apiResponse=await axois.post(url,payload)
+        console.log("I am apiResponse>>>",apiResponse.data);
+        await updateState(apiResponse.data);
+        setAnswers({
+            'ans1':"",
+            'ans2':"",
+            'ans3':"",
+            'ans4':"",
+            'ans5':"",
+            'ans6':"",
+            
+        })
 
     }
 
