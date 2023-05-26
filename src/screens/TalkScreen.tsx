@@ -90,7 +90,7 @@ const ngrokUrl='https://bdd4-2401-4900-47f0-8d4f-5e6e-dd7b-4ccd-78a5.ngrok-free.
             />
             <ButtonComponent
             text={'Submit'}
-            style={margin=15}
+            style={{margin:15}}
             onPress={callAxios}
             />
 

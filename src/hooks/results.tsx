@@ -18,7 +18,6 @@ const useresult = ()=>{
         setResult(emotion);
         console.log("I am emotion>>>",emotion);
         const timestamp=new Date().valueOf();
-        console.log("I am timestamp>>>",timestamp);
         AsyncStorage.setItem(`emotions_${timestamp.toString()}`,emotion.toString());
         return result
 
