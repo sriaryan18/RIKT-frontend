@@ -12,7 +12,7 @@ const TestScreen = ({navigation}:any)=>{
         <Text>
             I am Test Screen 
         </Text>
-       
+      
         </>
 
     );
