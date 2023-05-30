@@ -28,9 +28,9 @@ const Dashboard = ({navigation}:any) => {
       // const timestamp=new Date().valueOf();
       console.log("All emotions data:", emotions);
       for(let i=0;i<emotions.length;i++){
-          const currTime=new Date(1685075323667).toDateString()
+          const currTime=new Date().toDateString()
           console.log("date",emotionKeys[i].substring(9));
-        arr.push(`${currTime}                                    ${emotions[i]}`);
+        arr.push(`${currTime}                              ${emotions[i]}`);
         
       }
       setResultComponent(arr)
@@ -49,7 +49,7 @@ const Dashboard = ({navigation}:any) => {
     <ScrollView>
        
         
-       {resultComponent.map((item, index) => (
+       {resultComponent.reverse().map((item, index) => (
         <TextComponent
             label={`${item}`}
             isDisabled={true}

@@ -1,14 +1,15 @@
-import {View} from 'react-native';
+import {KeyboardAvoidingView, Platform, View} from 'react-native';
 import { Button, Text } from 'react-native-paper';
 import axois from 'react-native-axios'
 import TextComponent from '../components/TextComponents';
-import { useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { MyScreen } from '../../App';
 import ButtonComponent from '../components/Button';
 import result from '../hooks/results';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
-const ngrokUrl='https://bdd4-2401-4900-47f0-8d4f-5e6e-dd7b-4ccd-78a5.ngrok-free.app'
+const ngrokUrl='https://f763-2401-4900-47f3-5b3f-6d07-8505-575e-74fd.ngrok-free.app'
 
 
  const TalkScreen = ()=>{
@@ -47,7 +48,11 @@ const ngrokUrl='https://bdd4-2401-4900-47f0-8d4f-5e6e-dd7b-4ccd-78a5.ngrok-free.
     }
 
     return (
-        <View>
+        <KeyboardAvoidingView 
+        behavior={Platform.OS === 'ios'?'padding':'height'}
+      
+    >
+        <ScrollView>
             <Text>     How are feeling today ?</Text>
             <TextComponent
                 text={answers.ans1}
@@ -90,11 +95,12 @@ const ngrokUrl='https://bdd4-2401-4900-47f0-8d4f-5e6e-dd7b-4ccd-78a5.ngrok-free.
             />
             <ButtonComponent
             text={'Submit'}
-            style={margin=15}
+            style={{width:200,margin:20,alignSelf:'center'}}
             onPress={callAxios}
             />
+            </ScrollView>
 
-        </View>
+        </KeyboardAvoidingView>
     );
 }
 export default TalkScreen;
