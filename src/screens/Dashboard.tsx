@@ -14,6 +14,7 @@ const Dashboard = ({navigation}:any) => {
   let emotions:any=[];
 //   console.log("I am emotions>>>",emotions);
 
+  
 
   const [resultComponent,setResultComponent]=useState([])
   const arr:any=[];
@@ -25,10 +26,14 @@ const Dashboard = ({navigation}:any) => {
         const emotion = await AsyncStorage.getItem(key);
         return emotion;
       }));
+    
       // const timestamp=new Date().valueOf();
       console.log("All emotions data:", emotions);
       for(let i=0;i<emotions.length;i++){
-          const currTime=new Date().toDateString()
+        const d=emotionKeys[i].substring(9).split(" ")
+        const currTime=`${d[1]}-${d[2]} ${d[4]}`
+          // console.log("d>>>",d);
+
           console.log("date",emotionKeys[i].substring(9));
         arr.push(`${currTime}                              ${emotions[i]}`);
         
