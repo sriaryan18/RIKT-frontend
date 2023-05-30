@@ -8,7 +8,7 @@ import ButtonComponent from '../components/Button';
 import result from '../hooks/results';
 
 
-const ngrokUrl='https://bdd4-2401-4900-47f0-8d4f-5e6e-dd7b-4ccd-78a5.ngrok-free.app'
+const ngrokUrl='https://f763-2401-4900-47f3-5b3f-6d07-8505-575e-74fd.ngrok-free.app'
 
 
  const TalkScreen = ()=>{
